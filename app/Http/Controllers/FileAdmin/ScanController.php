@@ -76,6 +76,10 @@ class ScanController extends Controller
 
     public function refreshMovies()
     {
+        if ($this->path_movies == '') {
+            dd('Movie path: ' . $this->path_movies);
+        }
+
         $lists = scandir($this->path_movies);
         $lists = array_diff($lists, array(".", "..", "Thumbs.db", "theme.mp3", ".DS_Store", "Desktop_.ini"));
 
