@@ -10,6 +10,6 @@ class HomeController extends Controller
     //
     public function index()
     {
-        dd('hello!');
+        return view('media.home');
     }
 }
