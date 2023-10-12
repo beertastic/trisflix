@@ -42,8 +42,8 @@ Route::group(['prefix' => '/sharing', 'middleware' => ['IpMiddleware']], functio
     Route::get('/shares',                           [ShareController::class,    'index'])->name('shares');
     Route::get('/link/new',                         [ShareController::class,    'linkNew'])->name('link_new');
     Route::get('/link/del/{link_slug}',             [ShareController::class,    'linkDel'])->name('link_del');
-    Route::get('/link/item/del/{link_item_slug}',   [ShareController::class,    'linkItemDel'])->name('link_del');
-    Route::post('/link/items/add',                  [ShareController::class,    'linkItemAdd'])->name('link_del');
+    Route::get('/link/item/del/{link_item_slug}',   [ShareController::class,    'linkItemDel'])->name('link_item_del');
+    Route::post('/link/items/add',                  [ShareController::class,    'linkItemAdd'])->name('link_item_add');
 
     Route::get('/test',   [ShareController::class,    'test'])->name('test');
 
