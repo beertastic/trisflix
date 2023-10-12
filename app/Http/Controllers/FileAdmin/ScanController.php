@@ -19,7 +19,7 @@ class ScanController extends Controller
 
     public function __construct() {
         $this->path_tv = config('access.path_tv');
-        $this->path_movies = config('access.path_movies');
+        $this->path_movies = config('access.path_movie');
     }
 
     public function deleteLink($link_item_id = null) {
