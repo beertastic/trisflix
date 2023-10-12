@@ -14,8 +14,10 @@ use Illuminate\Http\Request;
 class ScanController extends Controller
 {
 
-    protected $path_tv = '/mnt/media/TV/';
-    protected $path_movies = '/mnt/media/Movies/';
+    public function __construct() {
+	$this->path_tv = config('access.path_tv');
+	$this->path_movies = config('access.path_movies');
+    }
 
     public function deleteLink($link_item_id = null) {
         if ($link_item_id == null) {
