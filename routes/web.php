@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Media\HomeController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\MoviesController;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\TvController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FilesController;
@@ -22,19 +22,15 @@ use \App\Http\Controllers\ShareController;
 |
 */
 
-Route::group(['prefix' => '/quiz'], function() {
-
-    Route::get('/music/', [QuizController::class, 'music'])->name('music');
-    Route::get('/image/', [QuizController::class, 'image'])->name('image');
-    Route::get('/aeg_image_reveal/', [QuizController::class, 'answers'])->name('answers');
-
-});
-
-
 Route::any('/api/v1/sonarr', [ApiController::class, 'sonarr']);
 Route::any('/api/v1/radarr', [ApiController::class, 'radarr']);
 
-Route::any('/link/adultentertainment', [ShareController::class, 'nick']);
+
+Route::group(['prefix' => '/media', 'middleware' => ['IpMiddleware']], function() {
+    Route::get('/', [HomeController::class,    'index'])->name('media_home');
+
+});
+
 
 Route::group(['prefix' => '/sharing', 'middleware' => ['IpMiddleware']], function() {
     Route::get('/',                                 [PanelController::class,    'index'])->name('home');
