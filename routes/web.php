@@ -60,7 +60,7 @@ Route::group(['prefix' => '/sharing', 'middleware' => ['IpMiddleware']], functio
         Route::any('/',                        [MoviesController::class,   'index'])->name('movies_home');
         Route::get('/refresh/list',            [MoviesController::class,   'refreshList'])->name('movies_refresh_list');
         Route::get('/refresh/media/{media_id}',[MoviesController::class,   'refreshMedia'])->name('movies_refresh_movie');
-        Route::get('/list/media/{media_id?}',  [MoviesController::class,   'listMedia'])->name('showlist');
+        Route::get('/list/media/{media_id?}',  [MoviesController::class,   'listMedia'])->name('movielist');
     });
 
     Route::get('/force/{file_id}',             [DownloadController::class, 'force'])->name('force');
