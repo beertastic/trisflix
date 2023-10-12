@@ -14,6 +14,10 @@ use Illuminate\Http\Request;
 class ScanController extends Controller
 {
 
+    private $path_movies;
+
+    private $path_tv;
+
     public function __construct() {
         $this->path_tv = config('access.path_tv');
         $this->path_movies = config('access.path_movies');
