@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 
 class ScanController extends Controller
 {
-
     private $path_movies;
 
     private $path_tv;
@@ -81,7 +80,7 @@ class ScanController extends Controller
     public function refreshMovies()
     {
         if ($this->path_movies == '') {
-            dd('Movie path: ' . $this->path_movies, config('access'));
+            dd('Movie path: ' . $this->path_movies, config('access.path_movies'));
         }
 
         $lists = scandir($this->path_movies);
