@@ -77,7 +77,7 @@ class ScanController extends Controller
     public function refreshMovies()
     {
         if ($this->path_movies == '') {
-            dd('Movie path: ' . $this->path_movies);
+            dd('Movie path: ' . $this->path_movies, config('access'));
         }
 
         $lists = scandir($this->path_movies);
