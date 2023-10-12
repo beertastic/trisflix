@@ -15,8 +15,7 @@ class IpMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $whitelist = config('access.whitelist');
-        $ipAddresses = explode(';', $whitelist);
+        $ipAddresses = explode(';', config('access.whitelist'));
 
         foreach ($ipAddresses as $ip) {
             if (strpos($request->ip(), $ip) === 0) {
