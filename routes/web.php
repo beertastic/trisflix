@@ -49,17 +49,17 @@ Route::group(['prefix' => '/sharing', 'middleware' => ['IpMiddleware']], functio
 
 
     Route::group(['prefix' => '/tv'], function() {
-        Route::any('/',                        [TvController::class,       'index'])->name('tv');
-        Route::get('/list/{link_slug}',        [TvController::class,       'list'])->name('tv');
-        Route::get('/refresh/list',            [TvController::class,       'refreshList'])->name('tv');
-        Route::get('/refresh/media/{media_id}',[TvController::class,       'refreshMedia'])->name('tv');
+        Route::any('/',                        [TvController::class,       'index'])->name('tv_home');
+        Route::get('/list/{link_slug}',        [TvController::class,       'list'])->name('tv_show');
+        Route::get('/refresh/list',            [TvController::class,       'refreshList'])->name('tv_refresh_all');
+        Route::get('/refresh/media/{media_id}',[TvController::class,       'refreshMedia'])->name('tv_refresh_show');
         Route::get('/list/media/{media_id?}',  [TvController::class,       'listMedia'])->name('showlist');
     });
 
     Route::group(['prefix' => '/movies'], function() {
-        Route::any('/',                        [MoviesController::class,   'index'])->name('movies');
-        Route::get('/refresh/list',            [MoviesController::class,   'refreshList'])->name('movies');
-        Route::get('/refresh/media/{media_id}',[MoviesController::class,   'refreshMedia'])->name('movies');
+        Route::any('/',                        [MoviesController::class,   'index'])->name('movies_home');
+        Route::get('/refresh/list',            [MoviesController::class,   'refreshList'])->name('movies_refresh_list');
+        Route::get('/refresh/media/{media_id}',[MoviesController::class,   'refreshMedia'])->name('movies_refresh_movie');
         Route::get('/list/media/{media_id?}',  [MoviesController::class,   'listMedia'])->name('showlist');
     });
 
